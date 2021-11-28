@@ -1,0 +1,12 @@
+/* lost__pass(page login) */
+
+.lost__pass-text {
+    text-align: center;
+}
+
+.lost__pass .form__btn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 32px;
+}

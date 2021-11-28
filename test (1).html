@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button class="subtract">-</button>
+        <input type="number" class="input" value="1">
+        <button class="add">+</button>
+    </div>
+    <br>
+    <div>
+        <button class="subtract">-</button>
+        <input type="number" class="input" value="1">
+        <button class="add">+</button>
+    </div>
+
+    <script>
+        function edit(abc) {
+            for (let i = 0; i < document.querySelectorAll(`.${abc}`).length; i++) {
+                document.querySelectorAll(`.${abc}`)[i].id = `${abc}-${i}`
+                console.log(document.querySelectorAll(`.${abc}`)[i].id)
+            }
+        }
+        edit('subtract')
+        edit('input')
+        edit('add')
+        for (var i = 0; i < document.querySelectorAll('.input').length; i++) {
+            document.querySelectorAll('.input')[i].addEventListener('click', function() {
+                for (var i = 0; i < document.querySelectorAll('.input').length; i++) {
+                    if (+document.querySelectorAll('.input')[i].value < 1) {
+                        document.querySelectorAll('.input')[i].value = 1
+                    }
+                }
+            })
+        }
+        // Hàm này để xử lý sự kiện nhấn nút cộng
+        function add(event) {
+            let id = event.target.id
+                // dùng hàm split để tách id thành 1 mảng gồm 2 phần tử, VD: ['add', '1']
+                // lâý phần tử có chỉ số là 1
+            let index = id.split('-')[1]
+                // suy luân ra id của ô input tương ứng
+            let inputId = `input-${event.target.id.split('-')[1]}`
+            console.log(event.target.id.split('-'))
+                // lấy giá trị cũ của ô input
+                // let oldValue = document.getElementById(inputId).value
+                // tăng giá trị cũ của input lên 1
+                // hàm parseInt() để chuyển giá trị oldValue có kiểu dữ liệu là string => integer
+            if (id.indexOf('add') == -1) {
+                document.getElementById(inputId).value = +document.getElementById(inputId).value - 1
+                if (+document.getElementById(inputId).value < 1) {
+                    document.getElementById(inputId).value = 1
+                }
+            } else {
+                document.getElementById(inputId).value = +document.getElementById(inputId).value + 1
+            }
+        }
+
+        // Lấy danh sách các nút cộng
+        // var addElements = document.getElementsByClassName('add');
+
+        // với mỗi nút thêm vào một eventListener để lắng nghe sự kiện click
+        function quang(x) {
+            for (let i = 0; i < document.getElementsByClassName(`${x}`).length; i++) {
+                document.getElementsByClassName(`${x}`)[i].addEventListener('click', add);
+            }
+        }
+        quang('add')
+        quang('subtract')
+        setInterval(function() {
+            if (+document.querySelector('.input').value < 1) {
+                document.querySelector('.input').value = 1
+            }
+        }, 0)
+    </script>
+</body>
+
+</html>
