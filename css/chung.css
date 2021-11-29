@@ -399,6 +399,7 @@ button {
     width: 80px;
     height: 80px;
     margin-right: 8px;
+    margin-left: 8px;
 }
 
 .header__cart-box__item>div {
@@ -425,19 +426,31 @@ button {
     width: 120px;
 }
 
-.header__cart-box__item-icon {
+.header__cart-box__list>li>span {
     position: absolute;
     top: 50%;
     right: 8px;
     transform: translateY(-50%);
     display: block;
     font-size: 2rem;
+    cursor: pointer;
 }
 
-.header__cart-box__item-icon:hover,
-.header__cart-box__item-icon:active {
+.header__cart-box__list>li>span:hover .header__cart-box__item-icon,
+.header__cart-box__list>li>span:active .header__cart-box__item-icon {
     color: var(--active-color);
     font-size: 2.2rem;
+}
+
+.header__cart-box__list>li>span input[type='submit'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .header__cart-box__footer-total-box {

@@ -3,10 +3,10 @@
         $str=$_GET['go'];
         switch($str){
             case 'home':
-                include "./inc/home.html";
+                include "./inc/home.php";
                 break;
             case 'cart':
-                include "./inc/cart.html";
+                include "./inc/cart.php";
                 break;
             case 'login':
                 include "./inc/login.html";
@@ -15,13 +15,16 @@
                 include "./inc/register.html";
                 break;
             case 'product__detail':
-                include "./inc/product__detail.html";
+                include "./inc/product__detail.php";
+                break;
+            case 'bill':
+                include "./inc/bill.php";
                 break;
             default:
                 include "./inc/home.html";
                 break;
         }
     }else{
-        include "./inc/home.html";
+        include "./inc/home.php";
     }
 ?>
