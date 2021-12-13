@@ -58,7 +58,7 @@
                 $du_dongia=$_SESSION['giohang'][$i][3];
                 $du_number=$_SESSION['giohang'][$i][4];
                 $du_thanhtien=(int)$du_dongia * (int)$du_number;
-                $insert_cart="INSERT INTO cart(cart_id,du_id,du_name,du_dongia,du_number,du_thanhtien,bill_id) VALUES('','$du_id','$du_name','$du_dongia','$du_number','$du_thanhtien','$bill_id')";
+                $insert_cart="INSERT INTO cart(du_id,du_name,du_dongia,du_number,du_thanhtien,bill_id) VALUES('$du_id','$du_name','$du_dongia','$du_number','$du_thanhtien','$bill_id')";
                 if(mysqli_query($conn,$insert_cart)){
                     // echo"<p>Bạn đã đặt hàng thành công!</p>";
                 }else{
@@ -74,7 +74,7 @@
                 <div class='grid wide'>
                     <div class='row'>
                         <div class='col l-6'>
-                            <p class='register__heading'>Thông tin nhận hàng</p>
+                            <p class='register__heading'>Thông tin khách hàng</p>
                             <div class='form__box'>
                                 <p style='text-align: center;margin-bottom:16px;margin-top:16px;'>Họ và tên: ".$name."</p>
                             </div>
@@ -100,14 +100,9 @@
                                             Ảnh sản phẩm
                                         </div>
                                     </div>
-                                    <div class='col l-3'>
+                                    <div class='col l-6'>
                                         <div class='table-product__heading-item'>
                                             Tên sản phẩm
-                                        </div>
-                                    </div>
-                                    <div class='col l-3'>
-                                        <div class='table-product__heading-item'>
-                                            Đơn giá
                                         </div>
                                     </div>
                                     <div class='col l-2' style='border-right:1px solid var(--text-color);'>
@@ -125,14 +120,9 @@
                                                 <img src='".$_SESSION['giohang'][$i][2]."'>
                                             </div>
                                         </div>
-                                        <div class='col l-3'>
+                                        <div class='col l-6'>
                                             <div class='table-product__container-item'>
                                                 <span>".$_SESSION['giohang'][$i][1]."</span>
-                                            </div>
-                                        </div>
-                                        <div class='col l-3'>
-                                            <div class='table-product__container-item'>
-                                                <span class='table-product__container-item-price'>".$_SESSION['giohang'][$i][3]." vnđ</span>
                                             </div>
                                         </div>
                                         <div class='col l-2' style='border-right:1px solid var(--text-color);'>

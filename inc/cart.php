@@ -131,12 +131,12 @@
                                     </div>
                                     <div class='col l-2'>
                                         <div class='table-product__container-item'>
-                                        <form action='#header' method='POST' class='form__cart'>
-                                            <button name='btn_apart' class='btn-num btn-num--apart btn-num--apart-cart'><i class='btn-num--apart-icon fas fa-minus'></i></button>
-                                            <input type='text' name='cart_number' value='".$_SESSION['giohang'][$i][4]."' class='form__input form__input-num form__input-cart'>
-                                            <input type='hidden' name='cart_id' value='".$_SESSION['giohang'][$i][0]."'>
-                                            <button name='btn_add' class='btn-num btn-num--add btn-num--add-cart'><i class='btn-num--add-icon fas fa-plus'></i></button>
-                                        </form>
+                                            <form action='#header' method='POST' class='form__cart'>
+                                                <button name='btn_apart' class='btn-num btn-num--apart btn-num--apart-cart'><i class='btn-num--apart-icon fas fa-minus'></i></button>
+                                                <input type='text' name='cart_number' value='".$_SESSION['giohang'][$i][4]."' class='form__input form__input-num form__input-cart'>
+                                                <input type='hidden' name='cart_id' value='".$_SESSION['giohang'][$i][0]."'>
+                                                <button name='btn_add' class='btn-num btn-num--add btn-num--add-cart'><i class='btn-num--add-icon fas fa-plus'></i></button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class='col l-2'>
@@ -170,6 +170,9 @@
                 </div>
             </div>
             <div class="col l-12">
+                <a href="?go=home#menu" class="btn btn--buy-more">Mua thêm</a>
+            </div>
+            <div class="col l-12">
                 <hr>
             </div>
             <div class="col l-8 l-o-2">
@@ -177,29 +180,29 @@
                 <div class="row">
                     <div class="col l-12 form__box">
                         <label for="user_name">Họ và Tên:</label>
-                        <input class='form__input' type="text" name="user_name" id="user_name" required>
+                        <input class='form__input' type="text" name="user_name" id="user_name">
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_address">Địa chỉ:</label>
-                        <input class='form__input' type="text" name="user_address" id="user_address" required>
+                        <input class='form__input' type="text" name="user_address" id="user_address">
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_numberphone">Số điện thoại:</label>
-                        <input class='form__input' type="text" name="user_numberphone" id="user_numberphone" required>
+                        <input class='form__input' type="text" name="user_numberphone" id="user_numberphone">
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_stk">Số tài khoản:</label>
-                        <input class='form__input' type="text" name="user_stk" id="user_stk" required>
+                        <input class='form__input' type="text" name="user_stk" id="user_stk">
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_bank">Tên ngân hàng:</label>
-                        <input class='form__input' type="text" name="user_bank" id="user_bank" required>
+                        <input class='form__input' type="text" name="user_bank" id="user_bank">
                     </div>
                 </div>
             </div>
             <div class="col l-12">
                 <div class="btn__box">
-                    <a href="?go=home" class="btn btn--buy-more">Mua thêm</a>
+                    <span></span>
                     <button name='add_bill' class="btn btn--green">Thanh toán</button>
                 </div>
             </div>

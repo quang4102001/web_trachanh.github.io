@@ -141,9 +141,9 @@
             <div class="row header__nav-cart-box">
                 <ul class="header__nav-list">
                     <li class="header__nav--active"><a href="?go=home" class="header__nav-item">Trang chủ</a></li>
-                    <li><a href="?go=home" class="header__nav-item">Giới thiệu</a></li>
-                    <li><a href="?go=home" class="header__nav-item">Sản phẩm</a></li>
-                    <li><a href="?go=home" class="header__nav-item">Tin tức</a></li>
+                    <li><a href="?go=home#footer" class="header__nav-item">Giới thiệu</a></li>
+                    <li><a href="?go=home#menu" class="header__nav-item">Sản phẩm</a></li>
+                    <li><a href="?go=home#blog" class="header__nav-item">Tin tức</a></li>
                     <li><a href="?go=home" class="header__nav-item">Liên hệ</a></li>
                 </ul>
                 <div class="header__cart">
