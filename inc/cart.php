@@ -56,122 +56,125 @@
         }
     }
 ?>
-<div class="grid wide">
-    <form action="?go=bill" method='POST'>
-        <div class="row">
-            <div class="col l-12 page">
-                <a href="" class="page__link">Trang chủ</a>
-                <i class="page-icon fas fa-chevron-right"></i>
-                <p class="page__name">Giỏ hàng</p>
-            </div>
-            <div class="col l-12">
-                <p class="register__heading">Giỏ hàng</p>
-            </div>
-            <div class="col l-12">
-                <?php
-                    if(!isset($_SESSION['giohang']) || sizeof($_SESSION['giohang']) == 0 || !is_array($_SESSION['giohang'])){
-                        echo"
-                            <span class='table-product__container-list-no-cart'>Chưa có sản phẩm nào cả </span>
-                        ";
-                    }else{
-                        echo"
-                            <div class='table-product__heading-list'>
-                                <div class='row no-gutters'>
-                                    <div class='col l-2'>
-                                        <div class='table-product__heading-item'>
-                                            Ảnh sản phẩm
-                                        </div>
+<div class="grid wide"> 
+    <div class="row">
+        <div class="col l-12 page">
+            <a href="" class="page__link">Trang chủ</a>
+            <i class="page-icon fas fa-chevron-right"></i>
+            <p class="page__name">Giỏ hàng</p>
+        </div>
+        <div class="col l-12">
+            <p class="register__heading">Giỏ hàng</p>
+        </div>
+        <div class="col l-12">
+            <?php
+                if(!isset($_SESSION['giohang']) || sizeof($_SESSION['giohang']) == 0 || !is_array($_SESSION['giohang'])){
+                    echo"
+                        <span class='table-product__container-list-no-cart'>Chưa có sản phẩm nào cả </span>
+                    ";
+                }else{
+                    echo"
+                        <div class='table-product__heading-list'>
+                            <div class='row no-gutters'>
+                                <div class='col l-2'>
+                                    <div class='table-product__heading-item'>
+                                        Ảnh sản phẩm
                                     </div>
-                                    <div class='col l-3'>
-                                        <div class='table-product__heading-item'>
-                                            Tên sản phẩm
-                                        </div>
+                                </div>
+                                <div class='col l-3'>
+                                    <div class='table-product__heading-item'>
+                                        Tên sản phẩm
                                     </div>
-                                    <div class='col l-2'>
-                                        <div class='table-product__heading-item'>
-                                            Đơn giá
-                                        </div>
+                                </div>
+                                <div class='col l-2'>
+                                    <div class='table-product__heading-item'>
+                                        Đơn giá
                                     </div>
-                                    <div class='col l-2'>
-                                        <div class='table-product__heading-item'>
-                                            Số lượng
-                                        </div>
+                                </div>
+                                <div class='col l-2'>
+                                    <div class='table-product__heading-item'>
+                                        Số lượng
                                     </div>
-                                    <div class='col l-2'>
-                                        <div class='table-product__heading-item'>
-                                            Thành tiền
-                                        </div>
+                                </div>
+                                <div class='col l-2'>
+                                    <div class='table-product__heading-item'>
+                                        Thành tiền
                                     </div>
-                                    <div class='col l-1'>
-                                        <div class='table-product__heading-item'>
-                                            Xóa
-                                        </div>
+                                </div>
+                                <div class='col l-1'>
+                                    <div class='table-product__heading-item'>
+                                        Xóa
                                     </div>
                                 </div>
                             </div>
-                            <div class='table-product__container-list'>
-                        ";
-                        for($i=0;$i<sizeof($_SESSION['giohang']);$i++){
-                            echo"
-                                <div class='row no-gutters'>
-                                    <div class='col l-2'>
-                                        <div class='table-product__container-item'>
-                                            <img src='".$_SESSION['giohang'][$i][2]."'>
-                                        </div>
-                                    </div>
-                                    <div class='col l-3'>
-                                        <div class='table-product__container-item'>
-                                            <span>".$_SESSION['giohang'][$i][1]."</span>
-                                        </div>
-                                    </div>
-                                    <div class='col l-2'>
-                                        <div class='table-product__container-item'>
-                                            <span class='table-product__container-item-price'>".$_SESSION['giohang'][$i][3]." vnđ</span>
-                                        </div>
-                                    </div>
-                                    <div class='col l-2'>
-                                        <div class='table-product__container-item'>
-                                            <form action='#header' method='POST' class='form__cart'>
-                                                <button name='btn_apart' class='btn-num btn-num--apart btn-num--apart-cart'><i class='btn-num--apart-icon fas fa-minus'></i></button>
-                                                <input type='text' name='cart_number' value='".$_SESSION['giohang'][$i][4]."' class='form__input form__input-num form__input-cart'>
-                                                <input type='hidden' name='cart_id' value='".$_SESSION['giohang'][$i][0]."'>
-                                                <button name='btn_add' class='btn-num btn-num--add btn-num--add-cart'><i class='btn-num--add-icon fas fa-plus'></i></button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class='col l-2'>
-                                        <div class='table-product__container-item'>
-                                            <span class='table-product__container-item-total'>0 vnđ</span>
-                                        </div>
-                                    </div>
-                                    <div class='col l-1'>
-                                        <div class='table-product__container-item'>
-                                            <form action='#header' method='POST' class='table-product__container-item-removecart'>
-                                                <i class='table-product__container-item-icon fas fa-times'></i>
-                                                <input type='submit' name='removecart' value=''>
-                                                <input type='hidden' name='douong_id' value='".$_SESSION['giohang'][$i][0]."'>
-                                            </form>
-                                        </div>
+                        </div>
+                        <div class='table-product__container-list'>
+                    ";
+                    for($i=0 ; $i<sizeof($_SESSION['giohang']) ; $i++){
+                        echo"
+                            <div class='row no-gutters'>
+                                <div class='col l-2'>
+                                    <div class='table-product__container-item'>
+                                        <img src='".$_SESSION['giohang'][$i][2]."'>
                                     </div>
                                 </div>
-                            ";
-                        }
-                        echo"
+                                <div class='col l-3'>
+                                    <div class='table-product__container-item'>
+                                        <span>".$_SESSION['giohang'][$i][1]."</span>
+                                    </div>
+                                </div>
+                                <div class='col l-2'>
+                                    <div class='table-product__container-item'>
+                                        <span class='table-product__container-item-price'>".$_SESSION['giohang'][$i][3]." vnđ</span>
+                                    </div>
+                                </div>
+                                <div class='col l-2'>
+                                    <div class='table-product__container-item'>
+                                        <form action='#header' method='POST' class='form__cart'>
+                                            <button name='btn_apart' class='btn-num btn-num--apart btn-num--apart-cart'><i class='btn-num--apart-icon fas fa-minus'></i></button>
+                                            <input type='text' name='cart_number' value='".$_SESSION['giohang'][$i][4]."' class='form__input form__input-num form__input-cart'>
+                                            <input type='hidden' name='cart_id' value='".$_SESSION['giohang'][$i][0]."'>
+                                            <button name='btn_add' class='btn-num btn-num--add btn-num--add-cart'><i class='btn-num--add-icon fas fa-plus'></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class='col l-2'>
+                                    <div class='table-product__container-item'>
+                                        <span class='table-product__container-item-total'>0 vnđ</span>
+                                    </div>
+                                </div>
+                                <div class='col l-1'>
+                                    <div class='table-product__container-item'>
+                                        <form action='#header' method='POST' class='table-product__container-item-removecart'>
+                                            <i class='table-product__container-item-icon fas fa-times'></i>
+                                            <input type='submit' name='removecart' value=''>
+                                            <input type='hidden' name='douong_id' value='".$_SESSION['giohang'][$i][0]."'>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         ";
                     }
-                ?>
+                    echo"
+                        </div>
+                    ";
+                }
+            ?>
+        </div>
+        <div class="col l-12">
+            <div class="cart__total-box">
+                <span class="cart__total-label">Tổng cộng:</span>
+                <span class="cart__total-price"></span>
             </div>
-            <div class="col l-12">
-                <div class="cart__total-box">
-                    <span class="cart__total-label">Tổng cộng:</span>
-                    <span class="cart__total-price"></span>
-                    <input type='hidden' name='total' id='input__total_cart'>
-                </div>
-            </div>
-            <div class="col l-12">
-                <a href="?go=home#menu" class="btn btn--buy-more">Mua thêm</a>
-            </div>
+        </div>
+        <div class="col l-12">
+            <a href="?go=home#menu" class="btn btn--buy-more">Mua thêm</a>
+        </div>
+    </div>
+</div>
+<div class="grid wide">
+    <form action="?go=bill" method="POST">
+        <div class="row">
             <div class="col l-12">
                 <hr>
             </div>
@@ -180,33 +183,34 @@
                 <div class="row">
                     <div class="col l-12 form__box">
                         <label for="user_name">Họ và Tên:</label>
-                        <input class='form__input' type="text" name="user_name" id="user_name">
+                        <input class='form__input' type="text" name="user_name" id="user_name" required>
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_address">Địa chỉ:</label>
-                        <input class='form__input' type="text" name="user_address" id="user_address">
+                        <input class='form__input' type="text" name="user_address" id="user_address" required>
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_numberphone">Số điện thoại:</label>
-                        <input class='form__input' type="text" name="user_numberphone" id="user_numberphone">
+                        <input class='form__input' type="text" name="user_numberphone" id="user_numberphone" required>
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_stk">Số tài khoản:</label>
-                        <input class='form__input' type="text" name="user_stk" id="user_stk">
+                        <input class='form__input' type="text" name="user_stk" id="user_stk" required>
                     </div>
                     <div class="col l-12 form__box">
                         <label for="user_bank">Tên ngân hàng:</label>
-                        <input class='form__input' type="text" name="user_bank" id="user_bank">
+                        <input class='form__input' type="text" name="user_bank" id="user_bank" required>
                     </div>
                 </div>
             </div>
             <div class="col l-12">
                 <div class="btn__box">
                     <span></span>
+                    <input type='hidden' name='total' id='input__total_cart'>
                     <button name='add_bill' class="btn btn--green">Thanh toán</button>
                 </div>
             </div>
         </div>
-    </form>
+    </form>  
 </div>
 <script src="./js/cart.js"></script>
